@@ -1,11 +1,10 @@
 #include <stdio.h>
 
-// Fonksiyon tanımlaması: İki değeri değiştiren fonksiyon (değer döndürerek)
-int swap(int a, int b) {
-    int temp = a;
-    a = b;
-    b = temp;
-    return a, b; // Yer değiştirilmiş a ve b değerlerini döndür
+void swap(int *a, int *b) {
+    int temp;
+    temp = *a;
+    *a = *b;
+    *b = temp;   
 }
 
 int main() {
@@ -13,8 +12,7 @@ int main() {
 
     printf("Öncesinde: x = %d, y = %d\n", x, y);
 
-    // swap fonksiyonunu çağırarak x ve y değerlerini değiştirme
-    x = swap(x, y);
+    swap(&x, &y);
 
     printf("Sonrasında: x = %d, y = %d\n", x, y);
 
